@@ -1,12 +1,11 @@
-import React, {useState} from 'react';
-import {HashRouter as Router, Route, Switch, Redirect} from 'react-router-dom';
+import React from 'react';
 import './App.css';
-import Navegacion from './components/Bar';
-import ListaTareas from './components/ListaTareas';
-import Sesion from './components/Sesion';
-import Axios from 'axios';
+//import Navegacion from './components/Bar';
+//import ListaTareas from './components/ListaTareas';
+//import Sesion from './components/Sesion';
+//import Axios from 'axios';
 import Footer from './components/Footer';
-const url = 'https://pure-bayou-88434.herokuapp.com/api/users/';
+//const url = 'https://pure-bayou-88434.herokuapp.com/api/users/';
 
 
 export default function App(){
@@ -17,7 +16,7 @@ export default function App(){
         setLoading(value);
     }*/
 
-    const [sesion, setSesion] = useState(null)
+   /* const [sesion, setSesion] = useState(null)
 
     const handleLogin = async (user, password) => {
             const login = await Axios.post(url + 'login', {user:user, password:password});
@@ -36,40 +35,13 @@ export default function App(){
 
     const handleLogout = async () => {
         setSesion(null);
-    }
+    }*/
     
     //if(!loading)
         return(
-            <Router>
-                <Navegacion sesion={sesion} handleLogout={handleLogout} />
-                    {sesion
-                    ?<Switch>
-                        <Route path="/" component={() => 
-                            <ListaTareas
-                                sesion={sesion}
-                            />} />
-                        <Redirect to="/" />
-                    </Switch>
-                    :<Switch>
-                        <Route path="/signup" 
-                            component={() => 
-                                <Sesion 
-                                onClick={handleSignup}
-                                text='Crear Cuenta'
-                                />} 
-                            />
-                        <Route path="/login" 
-                            component={() => 
-                                <Sesion 
-                                onClick={handleLogin}
-                                text='Ingresar'
-                                />} 
-                        />
-                        <Redirect to="/login" />
-                    </Switch>
-                }
+            <div>
                 <Footer />
-            </Router>
+            </div>
         )
     /*else
         return(
