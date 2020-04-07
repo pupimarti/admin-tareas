@@ -1,0 +1,15 @@
+html{
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#root{
+  width: 80vw;
+  max-width: 1200px;
+  margin: auto;
+}
+
+@media (max-width: 1000px){
+  #root{
+      width: 95vw;
+  }
+}

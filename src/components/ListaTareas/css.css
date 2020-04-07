@@ -1,0 +1,32 @@
+.content-list{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.content-info-new{
+    display: flex;
+    justify-content: space-between;
+}
+
+.buton-new{
+    color: #fff;
+    background-color: #22B97D;
+    padding: 10px;
+    border-radius: 50px;
+    width: 100px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.buton-new:hover{
+    box-shadow: 0 0 10px #ccc;
+    background-color: #22B932;
+    cursor: pointer;
+}
+
+.w100{
+    width: 100%;
+    text-align: center;
+}
