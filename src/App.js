@@ -44,11 +44,13 @@ export default function App(){
                 <Navegacion sesion={sesion} handleLogout={handleLogout} />
                     {sesion
                     ?<Switch>
-                        <Route path="/tareas" component={() => 
+                        <Route path="/tareas" component={() =>
                             <ListaTareas
                                 sesion={sesion}
                             />} />
-                        <Redirect to="/tareas" />
+                        <Route component={()=>
+                            <Redirect to="/tareas"/>} 
+                        />
                     </Switch>
                     :<Switch>
                         <Route path="/signup" 
@@ -65,7 +67,9 @@ export default function App(){
                                 text='Ingresar'
                                 />} 
                         />
-                        <Redirect to="/login" />
+                        <Route component={()=>
+                            <Redirect to="/login"/>} 
+                        />
                     </Switch>
                 }
                 <Footer />
