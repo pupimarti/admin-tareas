@@ -11,16 +11,11 @@ export default function ListaTareas(props) {
 
     const [tareas, setTareas] = useState([]);
     useEffect(() => {
-        const getDatos = async () =>{
-            const res = await Axios.get(window.$urlTasks);
-            setTareas(res);
-            handleSetLoading(true);
-        }    
-        getDatos();
+        getTasks();
     }, []);
 
     const getTasks = async () =>{
-        const res = await Axios.get(window.$urlTasks);
+        const res = await Axios.get(window.$urlTasks+ '/' + props.sesion.user);
         setTareas(res);
         handleSetLoading(true);
     }
