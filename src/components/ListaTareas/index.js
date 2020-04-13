@@ -4,7 +4,6 @@ import CardTarea from '../CardTarea';
 import './css.css';
 
 export default function ListaTareas(props) {
-    const url = 'https://pure-bayou-88434.herokuapp.com/api/tareas/';
     const [loading, setLoading] = useState(false);
     const handleSetLoading = (value) =>{
         setLoading(value);
@@ -13,7 +12,7 @@ export default function ListaTareas(props) {
     const [tareas, setTareas] = useState([]);
     useEffect(() => {
         const getDatos = async () =>{
-            const res = await Axios.get(url);
+            const res = await Axios.get(window.$urlTasks);
             setTareas(res);
             handleSetLoading(true);
         }    
@@ -21,7 +20,7 @@ export default function ListaTareas(props) {
     }, []);
 
     const getTasks = async () =>{
-        const res = await Axios.get(url);
+        const res = await Axios.get(window.$urlTasks);
         setTareas(res);
         handleSetLoading(true);
     }
@@ -29,13 +28,13 @@ export default function ListaTareas(props) {
 
     const newTask = async () => {
         handleSetLoading(false);
-        await Axios.post(url, {titulo:'', descripcion:'', autor:props.sesion.user,date: new Date()});
+        await Axios.post(window.$urlTasks, {titulo:'', descripcion:'', autor:props.sesion.user,date: new Date()});
         getTasks();
     }
 
     const handleDeleteTask = async (id) =>{
         handleSetLoading(false);
-        await Axios.delete(url + id);
+        await Axios.delete(window.$urlTasks + '/' + id);
         getTasks();
     }
 

@@ -46,7 +46,7 @@ export default function CardTarea(props) {
 
     const handleEdit = async () => {
         handleSetLoading(true);
-        const res = await Axios.put('https://pure-bayou-88434.herokuapp.com/api/tareas/' + props.data._id, {
+        const res = await Axios.put('http://localhost:4000/api/tareas/' + props.data._id, {
             titulo: data.edittitle,
             descripcion: data.editdescription,
             date: data.date

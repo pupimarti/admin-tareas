@@ -3,35 +3,25 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom
 import './App.css';
 import Navegacion from './components/Bar';
 import ListaTareas from './components/ListaTareas';
-import Sesion from './components/Sesion';
-import Axios from 'axios';
+import LogIn from './components/LogIn';
+import SignUp from './components/SignUp';
+//import Axios from 'axios';
 import Footer from './components/Footer';
-const url = 'https://pure-bayou-88434.herokuapp.com/api/users/';
 
+window.$url = 'http://localhost:4000';
+window.$urlUsers = window.$url + '/api/users';
+window.$urlTasks = window.$url + '/api/tareas';
 
 export default function App(){
-
-    
-    /*const [loading, setLoading] = useState(false);
-    const handleSetLoading = (value) =>{
-        setLoading(value);
-    }*/
 
     const [sesion, setSesion] = useState(null)
 
     const handleLogin = async (user, password) => {
-            const login = await Axios.post(url + 'login', {user:user, password:password});
-            if(login.data !== null)
-                setSesion(login.data);
-            else
-                return null;
+        setSesion(user, password);
     }
 
     const handleSignup = async (user, password) => {
-        const signup = await Axios.post(url + 'new', {user:user, password:password});
-        if(signup.data !== null)
-            setSesion(signup.data);
-        return signup;
+        console.log('cuenta creada');
     }
 
     const handleLogout = async () => {
@@ -55,16 +45,14 @@ export default function App(){
                     :<Switch>
                         <Route path="/signup" 
                             component={() => 
-                                <Sesion 
+                                <SignUp 
                                 onClick={handleSignup}
-                                text='Crear Cuenta'
                                 />} 
                             />
                         <Route path="/login" 
                             component={() => 
-                                <Sesion 
+                                <LogIn 
                                 onClick={handleLogin}
-                                text='Ingresar'
                                 />} 
                         />
                         <Route component={()=>
@@ -75,8 +63,4 @@ export default function App(){
                 <Footer />
             </Router>
         )
-    /*else
-        return(
-            <div className="cargando"></div>
-        )*/
 }

@@ -15,6 +15,18 @@
       text-align: center;
   }
 
+  .errors{
+    width: 100%;
+  }
+
+  .errors > p{
+    background-color: #a34a4a;
+    color: #fff;
+    width: 80%;
+    margin: 10px auto;
+    padding:10px;
+  }
+
   .form {
     background: #FFFFFF;
     width: 90vw;
