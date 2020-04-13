@@ -28,14 +28,15 @@ export default function Sesion(props) {
         e.preventDefault();
         handleSetLoading(true);
         setErrors([]);
-        /*const login = await Axios.post(window.$urlUsers + '/login', 
+        const login = await Axios.post(window.$urlUsers + '/login', 
         {user:data.user, password:data.password});
-            if(login.data){
+        if(login.data){
+            if(login.data.errors){
                 handleSetErrors(login.data.errors);
                 handleSetLoading(false);
-            }
-            else
-                props.onClick(data.user);*/
+            }else
+                props.login(data.user, data.password);
+        }
     }
     return(
         <div className="login-page">

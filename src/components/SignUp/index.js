@@ -34,7 +34,7 @@ export default function SignUp(props) {
             handleSetLoading(false);
         }
         else
-            props.onClick('a','a');
+            props.login(data.user, data.password);
     }
     return(
         <div className="login-page">

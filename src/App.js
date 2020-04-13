@@ -16,12 +16,8 @@ export default function App(){
 
     const [sesion, setSesion] = useState(null)
 
-    const handleLogin = async (user, password) => {
-        setSesion(user, password);
-    }
-
-    const handleSignup = async (user, password) => {
-        console.log('cuenta creada');
+    const handleLogin = async (user, password) => { 
+        setSesion({user, password});
     }
 
     const handleLogout = async () => {
@@ -46,13 +42,13 @@ export default function App(){
                         <Route path="/signup" 
                             component={() => 
                                 <SignUp 
-                                onClick={handleSignup}
+                                login={handleLogin}
                                 />} 
                             />
                         <Route path="/login" 
                             component={() => 
                                 <LogIn 
-                                onClick={handleLogin}
+                                login={handleLogin}
                                 />} 
                         />
                         <Route component={()=>
