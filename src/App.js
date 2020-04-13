@@ -23,7 +23,6 @@ export default function App(){
         setSesion(null);
     }
     
-    //if(!loading)
         return(
             <Router>
                 <Navegacion sesion={sesion} handleLogout={handleLogout} />
